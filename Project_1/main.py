@@ -25,9 +25,9 @@ print("New user signup is visible")
 
 # Typing name and email in new user
 name = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@type='text']")))
-name.send_keys("Assassin")
+name.send_keys("assassin")
 email = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@data-qa='signup-email']")))
-email.send_keys("Assassnin8@gmail.com")
+email.send_keys("assassin@gmail.com")
 
 # Clicking on signup button
 signup_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-qa='signup-button']")))
@@ -105,4 +105,33 @@ phone_number.send_keys("03239198902")
 # Clicking on create account button
 create_account_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//button[@data-qa='create-account']")))
 create_account_btn.click()
+
+# Checking if the Account Created text appers or not
+account_created_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[@data-qa='account-created']")))
+assert account_created_text.is_displayed()
+print("Account Created Succesfully")
+
+# Clicking on Continue button
+continue_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[text()='Continue']")))
+continue_btn.click()
+
+# Checking if the Logged in as username text appears or not
+logged_in_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(., 'Logged in as')]")))
+assert logged_in_text.is_displayed()
+print("Logged in text is visible")
+
+# Clicking on delete account button
+delete_account_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[@href='/delete_account']")))
+delete_account_btn.click()
+
+
+# Checking if the account deleted text appears or not
+account_deleted_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[@data-qa='account-deleted']")))
+assert account_deleted_text.is_displayed()
+print("Account deleted")
+
+# Clicking on continue button
+Continue_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[@data-qa='continue-button']")))
+Continue_btn.click()
+
 time.sleep(5)   
