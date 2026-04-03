@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+import random
 import time
 import os
 
@@ -24,10 +25,13 @@ assert new_user_signup.is_displayed()
 print("New user signup is visible")
 
 # Typing name and email in new user
-name = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@type='text']")))
-name.send_keys("assassin")
-email = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@data-qa='signup-email']")))
-email.send_keys("assassin@gmail.com")
+random_number = random.randint(10,99)
+
+name = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@type='text']")))
+name.send_keys(f"assassin{random_number}")
+
+email = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@data-qa='signup-email']")))
+email.send_keys(f"assassin{random_number}@gmail.com")
 
 # Clicking on signup button
 signup_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-qa='signup-button']")))
@@ -87,51 +91,51 @@ select = Select(country)
 select.select_by_visible_text("Singapore")
 
 # Typing state
-state = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@id='state']")))
+state = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@id='state']")))
 state.send_keys("Central Area")
 
 # Typing city
-city = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@id='city']")))
+city = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@id='city']")))
 city.send_keys("Central Area")
 
 # typing zipcode
-zipcode = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@id='zipcode']")))
+zipcode = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@id='zipcode']")))
 zipcode.send_keys("43769")
 
 # typing Phone Number
-phone_number = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@id='mobile_number']")))
+phone_number = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@id='mobile_number']")))
 phone_number.send_keys("03239198902")
 
 # Clicking on create account button
-create_account_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//button[@data-qa='create-account']")))
+create_account_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-qa='create-account']")))
 create_account_btn.click()
 
 # Checking if the Account Created text appers or not
-account_created_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[@data-qa='account-created']")))
+account_created_text = wait.until(EC.visibility_of_element_located((By.XPATH, "//h2[@data-qa='account-created']")))
 assert account_created_text.is_displayed()
 print("Account Created Succesfully")
 
 # Clicking on Continue button
-continue_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[text()='Continue']")))
+continue_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[text()='Continue']")))
 continue_btn.click()
 
 # Checking if the Logged in as username text appears or not
-logged_in_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(., 'Logged in as')]")))
+logged_in_text = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[contains(., 'Logged in as')]")))
 assert logged_in_text.is_displayed()
 print("Logged in text is visible")
 
 # Clicking on delete account button
-delete_account_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[@href='/delete_account']")))
+delete_account_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@href='/delete_account']")))
 delete_account_btn.click()
 
 
 # Checking if the account deleted text appears or not
-account_deleted_text = wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[@data-qa='account-deleted']")))
+account_deleted_text = wait.until(EC.visibility_of_element_located((By.XPATH, "//h2[@data-qa='account-deleted']")))
 assert account_deleted_text.is_displayed()
 print("Account deleted")
 
 # Clicking on continue button
-Continue_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//a[@data-qa='continue-button']")))
+Continue_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@data-qa='continue-button']")))
 Continue_btn.click()
 
 time.sleep(5)   
