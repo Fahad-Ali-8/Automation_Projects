@@ -23,3 +23,14 @@ This project automates a complete end-to-end user journey on a demo website usin
 ## ▶️ How to Run
 
 1. Install dependencies:
+  pip install selenium
+2. Download ChromeDriver and add to PATH
+3. Run the script:
+
+## 📈 Future Improvements
+- Convert to Pytest framework
+- Implement Page Object Model (POM)
+- Add reporting (Allure)
+
+## 👨‍💻 Author
+Fahad Ali
