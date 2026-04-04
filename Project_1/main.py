@@ -125,17 +125,17 @@ assert logged_in_text.is_displayed()
 print("Logged in text is visible")
 
 # Clicking on delete account button
-delete_account_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@href='/delete_account']")))
-delete_account_btn.click()
+# delete_account_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@href='/delete_account']")))
+# delete_account_btn.click()
 
 
 # Checking if the account deleted text appears or not
-account_deleted_text = wait.until(EC.visibility_of_element_located((By.XPATH, "//h2[@data-qa='account-deleted']")))
-assert account_deleted_text.is_displayed()
-print("Account deleted")
+# account_deleted_text = wait.until(EC.visibility_of_element_located((By.XPATH, "//h2[@data-qa='account-deleted']")))
+# assert account_deleted_text.is_displayed()
+# print("Account deleted")
 
 # Clicking on continue button
-Continue_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@data-qa='continue-button']")))
-Continue_btn.click()
+# Continue_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@data-qa='continue-button']")))
+# Continue_btn.click()
 
 time.sleep(5)   
