@@ -20,7 +20,7 @@ This project automates a complete end-to-end user journey on a demo website usin
 - Automating real-world user flows
 - Avoiding flaky tests
 
-## ▶️ How to Run
+## ▶️ How to Run this program
 
 1. Install dependencies:
   pip install selenium
